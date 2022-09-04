@@ -11,19 +11,21 @@
         <div class="spacer"></div>
 
         <p class="caption">
-            <b>Background: </b>Common wall adapters only output power at one voltage, while most devices require power at multiple voltages (usually 12 volts, 5 volts, and 3.3 volts). The most common solution to this is to include voltage converters on every device, which may be expensive when there are many small devices. By moving the voltage converters from every small device into a single power supply, the cost and complexity of the overall project is reduced, while also allowing a higher efficiency.
+            <b>Background: </b>When I was working on fitting multiple devices such as light bulbs and
+            motion sensors on top of a Roomba, I needed power supplies with different voltages
+            (12 volts, 5 volts, and 3.3 volts). However, common wall adapters only output power at a single fixed voltage. The most common solution is to include voltage converters on every device, which may be expensive when there are many small devices, and can take up more space. By moving the voltage converters from every small device into a single power supply, the cost and complexity of the overall project is reduced, and the efficiency is improved.
             <br> <br>
-            These power supplies are not readily available since there is no existing standard for them, so consumer electronics must include their own voltage converters. For my own projects however, I do not need to use a standard connector, which allows me to use this power supply for any of my other projects.
-            <br> <br>
-
-            <b>Procedure: </b>First, a logical schematic was created in KiCAD, shown in figure 1. Then, also using KiCAD, the board layout was created, shown in figure 2. Finally, the design was sent to JLCPCB to be fabricated. When designing the board, care was taken to reduce cost, increase efficiency, and increase usability. To reduce cost, the PCB only used two layers, and was made as compact as possible. To increase usability, I added reverse polarity protection so that if the wall adapter was connected incorrectly, the power supply would not break. When implementing this reverse polarity protection, I used a PMOS transistor rather than using a diode like most other devices since the PMOS transistor uses less power. Another way that I increased the efficiency of the power supply was to run computer simulations. With computer simulations, I could quickly and easily optimize the power supply, and achieved over 90% efficiency with a current draw of 3 amps from all three outputs.
-            <br> <br>
-            In order to have the PCB fabricated, I had to follow design rules regarding things such as the size of holes or how close parts could be. After designing the PCB following these rules, I sent the design and bill of materials to JLCPCB, who fabricated the board and soldered everything to it, which took about 3 weeks.
-            <br> <br>
-            To test the PCB, I used resistors to draw power from the power supply, and measured the voltage with a multimeter. With a resistor drawing 1 amp from the 5 volt output, the voltage dropped to 4.9 volts, a marginal difference, demonstrating the functionality of the power supply. I also intentionally connected the wall adapter in reverse, to make sure that the power supply did not break after this.
+            These power supplies are not readily available since there is no existing standard for them. Therefore, consumer electronics must include their own voltage converters. For my own projects however, I do not need to use a standard connector, which allows me to use this power supply for any of my other projects.
             <br> <br>
 
-            <b>Conclusion: </b>
+            <b>Procedure: </b>First, I created a logical schematic using KiCAD, as shown in figure 1. Then I created the board layout, also using KiCAD, as shown in figure 2. Finally, I sent the design to JLCPCB to be fabricated. The final product is shown in figure 3. When designing the board, care was taken to reduce cost, increase efficiency, and increase usability. To reduce cost, the PCB only used two layers, and was made as compact as possible. To increase usability, I added reverse polarity protection so that if the wall adapter was connected incorrectly, the power supply would not break. When implementing this reverse polarity protection, I used a PMOS transistor rather than using a diode like most other devices since the PMOS transistor uses less power. Another way that I increased the efficiency of the power supply was to run computer simulations. With computer simulations, I was able to quickly and easily optimize the power supply, and achieved over 90% efficiency with a current draw of 3 amps from all three outputs. 
+            <br> <br>
+            In order to have the PCB fabricated, I had to follow design rules regarding things such as the size of holes or how close parts could be. After designing the PCB following these rules, I sent the design and bill of materials to JLCPCB, who fabricated the board and soldered everything to it, which took about 3 weeks. 
+            <br> <br>
+            When I received the PCB, I tested it using resistors to draw power from the power supply, and measured the voltage with a multimeter. With a resistor drawing 1 amp from the 5 volt output, the voltage dropped to 4.9 volts, a marginal difference, demonstrating the functionality of the power supply. I also intentionally connected the wall adapter in reverse, to make sure that the power supply did not break after this. 
+            <br> <br>
+
+            <b>Conclusion: </b>It was fun and satisfying to go through this entire process of researching the theory, custom designing, working with manufacturers to implement the design, and testing, The final product worked exactly as I had hoped. Careful planning and attention to details contributed to the success. This experience will help me in future situations when I need to custom make more complex electronic circuit boards.
         </p>
 
         <div class="spacer"></div>
