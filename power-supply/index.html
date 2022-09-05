@@ -2,10 +2,19 @@
 <html>
     <head>
         <link rel="stylesheet" href="../main.css">
-      </head>
+        <title>Electronics Projects by Richard Li</title>
+    </head>
     <body>
         <div class="header">
-            <p><a href="../index.html" class="headerLink">Electronics Projects by Richard Li</a></p>
+            <a href="../index.html">
+                Home
+            </a>
+            <a href="../power-supply/index.html" class="active">
+                Power Supply
+            </a>
+            <a href="../displayport-edp/index.html">
+                Displayport to eDP Converter
+            </a>
         </div>
 
         <div class="spacer"></div>
@@ -15,7 +24,7 @@
             motion sensors on top of a Roomba, I needed power supplies with different voltages
             (12 volts, 5 volts, and 3.3 volts). However, common wall adapters only output power at a single fixed voltage. The most common solution is to include voltage converters on every device, which may be expensive when there are many small devices, and can take up more space. By moving the voltage converters from every small device into a single power supply, the cost and complexity of the overall project is reduced, and the efficiency is improved.
             <br> <br>
-            These power supplies are not readily available since there is no existing standard for them. Therefore, consumer electronics must include their own voltage converters. For my own projects however, I do not need to use a standard connector, which allows me to use this power supply for any of my other projects.
+            These power supplies are not readily available since there is no existing standard for them. Therefore, consumer electronics must include their own voltage converters. For my own projects however, I do not need to use a standard connector such as USB. By creating my own power supply, I can use it for any of my other projects.
             <br> <br>
 
             <b>Procedure: </b>First, I created a logical schematic using KiCAD, as shown in figure 1. Then I created the board layout, also using KiCAD, as shown in figure 2. Finally, I sent the design to JLCPCB to be fabricated. The final product is shown in figure 3. When designing the board, care was taken to reduce cost, increase efficiency, and increase usability. To reduce cost, the PCB only used two layers, and was made as compact as possible. To increase usability, I added reverse polarity protection so that if the wall adapter was connected incorrectly, the power supply would not break. When implementing this reverse polarity protection, I used a PMOS transistor rather than using a diode like most other devices since the PMOS transistor uses less power. Another way that I increased the efficiency of the power supply was to run computer simulations. With computer simulations, I was able to quickly and easily optimize the power supply, and achieved over 90% efficiency with a current draw of 3 amps from all three outputs. 
@@ -29,25 +38,21 @@
         </p>
 
         <div class="spacer"></div>
-        <img src="images/IMG_2342.JPG">
+        <img src="images/Schematic.png">
         <p class="caption">
-            Power supply which I designed following the design rules of JLCPCB and had fabricated by them
+            <b>Figure 1: </b>Whole board schematic
         </p>
 
         <div class="spacer"></div>
         <img src="images/PCBView.png">
         <p class="caption">
-            Board layout, created using KiCAD
+            <b>Figure 2: </b>Board layout
         </p>
 
         <div class="spacer"></div>
-        <img src="images/Schematic.png">
+        <img src="images/IMG_2342.JPG">
         <p class="caption">
-            Whole board schematic
-            <br> <br>
-            For reverse polarity protection, a PMOS transistor is used for its low voltage drop and relative simplicity compared to other solutions. The gate is connected to ground, the source is connected to the output, and the drain is connected to the input. When the power supply is properly connected, the body diode allows a small amount of current through until the voltage on the output is high enough that the voltage between the gate and source is high enough for current to flow from the drain to the source. However, when the power supply is connected incorrectly, the gate is at a higher voltage than the drain and source, so no current flows through the MOSFET.
-            <br> <br>
-            Both the 5V and 3.3V rails are buck converters, and in simulations achieved over 90% efficiency at a current draw of 3 amps.
+            <b>Figure 3: </b>Final product
         </p>
 
     </body>

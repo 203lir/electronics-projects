@@ -2,42 +2,60 @@
 <html>
     <head>
         <link rel="stylesheet" href="../main.css">
-      </head>
+        <title>Electronics Projects by Richard Li</title>
+    </head>
     <body>
         <div class="header">
-            <p><a href="../index.html" class="headerLink">Electronics Projects by Richard Li</a></p>
+            <a href="../index.html">
+                Home
+            </a>
+            <a href="../power-supply/index.html">
+                Power Supply
+            </a>
+            <a href="../displayport-edp/index.html" class="active">
+                Displayport to eDP Converter
+            </a>
         </div>
 
         <div class="spacer"></div>
-        <img src="images/IMG_2341.JPG">
         <p class="caption">
-            PCB only
-        </p>
-
-        <div class="spacer"></div>
-        <img src="images/PCBView.png">
-        <p class="caption">
-            Board layout (care was taken to tune the impedances of the three differential pairs and to keep the length of each wire the same as its pair)
+            <b>Background: </b>I had an extra laptop display which I wanted to do something with, so I first had to get it to power on and connect to a computer. Since it is a laptop display, only a few laptop models are normally usable with this screen. Devices allowing other computers to connect to this screen are not available for the same reason: this specific screen is only used in a few laptops.
+            <br> <br>
+            <b>Procedure: </b>Although the physical connector is only found on this screen, the electrical signal carried by the connector is identical to the signal in more common connectors such as Displayport, which I can easily buy adapters for. This makes the PCB significantly simpler. However, since the Displayport signal has a very high frequency, the PCB must be designed very carefully to ensure reliable operation. Special considerations must be taken to minimize electrical interference. The width of the wires on the PCB and the spacing between the wires must be calculated and followed or the signal will be significantly degraded passing through the PCB. The length of each connection must be exactly the same, or the timing of the signals will not be correct, and the screen will not function.
+            <br> <br>
+            The device was tested by plugging it in. When the power supply was connected, the screen turned on, showing that the connector was wired properly. However, when the cable was plugged in to the computer, the screen did not show anything, although the computer was able to detect the screen and get information about it. This shows that only some of the connections between the computer and screen worked.
+            <br> <br>
+            <b>Conclusion: </b>I did not continue revising the PCB since I could not identify the specific problem. However, I learned about working with radio frequency signals, which are very common in modern electronics.
         </p>
 
         <div class="spacer"></div>
         <img src="images/Schematic.png">
         <p class="caption">
-            Schematic
-            <br> <br>
-            Embedded Displayport as implemented by the LCD used in this project only allows two Displayport main links. Thus, only Lane0 and Lane1 from the standard Displayport connector are used. The AUX channel is used to communicate data such as the resolution supported by the screen. Other connections on the eDP connector are used for power and setting the screen brightness, which the PCB sets to always be full brightness.
+            <b>Figure 1: </b>Whole board schematic
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/PCBView.png">
+        <p class="caption">
+            <b>Figure 2: </b>Board layout
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/IMG_2341.JPG">
+        <p class="caption">
+            <b>Figure 3: </b>Final product with cable to display connected
         </p>
 
         <div class="spacer"></div>
         <img src="images/IMG_2343.JPG">
         <p class="caption">
-            Connection to LCD panel
+            <b>Figure 4: </b>Screen with cable to final product
         </p>
 
         <div class="spacer"></div>
         <img src="images/IMG_2344.JPG">
         <p class="caption">
-            Entire setup (without connection to computer and power supply)
+            <b>Figure 5: </b>Screen and PCB together
         </p>
 
     </body>

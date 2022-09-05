@@ -13,11 +13,28 @@ img {
 }
 
 .header {
-    padding: 0.1em;
-    text-align: center;
-    background: #01153E;
+    overflow: hidden;
+    background-color: #01153e;
+    padding: 20px 10px;
+}
+
+.header a {
+    float: left;
     color: white;
-    font-size: 3em;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a:hover {
+    background-color: #525A6B;
+}
+
+.header a.active {
+    background-color: #344D7C;
 }
 
 .spacer {
@@ -30,10 +47,6 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.headerLink {
-    color: white;
 }
 
 .imageLink {
