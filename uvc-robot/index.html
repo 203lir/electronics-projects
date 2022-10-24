@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../main.css">
+        <title>Electronics Projects by Richard Li</title>
+    </head>
+    <body>
+        <div class="header">
+            <a href="../index.html">
+                Home
+            </a>
+            <a href="uvc-robot/index.html" class="active">
+                Disinfecting Robot
+            </a>
+            <a href="../power-supply/index.html">
+                Power Supply
+            </a>
+            <a href="../displayport-edp/index.html">
+                Displayport to eDP Converter
+            </a>
+        </div>
+
+        <div class="spacer"></div>
+
+        <p class="caption">
+            <b>Background: </b>To fight the COVID pandemic, I wanted to build a cost-effective way to disinfect surfaces. Although we now know that the COVID virus is primarily spread through aerosols rather than surfaces, keeping surfaces disinfected is always beneficial. Current methods of disinfection include wiping things down, which is labor-intensive and expensive. Stationary ultraviolet lights are another possible solution, but require people to move them and are likely to miss spots. Existing disinfecting robots are extremely expensive, costing upwards of $10,000 each, making them impractical for almost all users. By using commonly available consumer products, the price of this robot is significantly reduced while maintaining the same functionality.
+            <br> <br>
+
+            <b>Procedure: </b>I first made a high level plan of the overall project: there would be a UV-C light on top of a robot vacuum with its own battery. The light would be controlled by an Arduino, which would also make it possible for the light to be turned off if a person walked near the robot. This feature is important for safety, because ultraviolet light is harmful to people. There would also be tubes mounted to the front bumper of the robot vacuum, which would allow the base robot to detect when the tubes hit an object, preventing the actual UV-C light from being hit.
+            <br> <br>
+            The tubes were mounted to the front bumper through a 3d printed adapter, shown in <a href="#figure1">figure 1</a>. The 3d printed adapter was designed with a top and bottom segment which would clip onto the bumper, then be screwed together. The assembled mounting mechanism with the PVC pipe inserted can be seen in <a href="#figure2">figure 2</a>.
+            <br> <br>
+            To detect people, infrared sensors are used. However, the infrared sensors require an amplifier, noise filter, and analog digital converter (ADC) to be usable. I first developed a prototype using a breadboard, shown in <a href="#figure3">figure 3</a>. However, this was messy, and could not be scaled up to work with multiple sensors. To fix this, I developed a printed circuit board (PCB) which miniaturized the functionality of the prototype, learning through online resources. My first step was to create a logical schematic of my prototype, which I then slightly improved on to create the schematic schown in <a href="#figure4">figure 4</a>. This schematic was designed to be a single unit, making it easy to simply add more units when more sensors were needed. I decided to use 3 of these units in each PCB as can be seen in <a href="#figure5">figure 5</a>. Then, I planned the physical layout, shown in <a href="#figure6">figure 6</a>. Finally, I sent the design to JLCPCB to be fabricated. The final product is shown by itself in <a href="#figure7">figure 7</a> and assembled with an Arduino and infrared sensor in <a href="#figure8">figure 8</a>.
+            <br> <br>
+            The Arduino is then able to switch the light on and off by switching the power to the light. The light must be powered by 120V AC power, so there is an inverter on board to convert the power from the 12V DC supplied by the battery to 120V AC. In between the inverter and battery, there is a relay, or an electronically controlled switch, which the Arduino controls.
+            <br> <br>
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/Picture1.png" id="figure1">
+        <p class="caption">
+            <b>Figure 1: </b>Mechanism to attach PVC pipe to robot vacuum
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/Picture2.png" id="figure2">
+        <p class="caption">
+            <b>Figure 2: </b>Entire disinfecting robot
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/IMG_2415.JPG" id="figure3">
+        <p class="caption">
+            <b>Figure 3: </b>Infrared sensor circuit prototype
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/Figure4.png" id="figure4">
+        <p class="caption">
+            <b>Figure 4: </b>Single unit schematic
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/Figure5.png" id="figure5">
+        <p class="caption">
+            <b>Figure 5: </b>Whole PCB schematic
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/Figure6.png" id="figure6">
+        <p class="caption">
+            <b>Figure 6: </b>Board layout
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/RACY4769.JPG" id="figure7">
+        <p class="caption">
+            <b>Figure 7: </b>Finished PCB
+        </p>
+
+        <div class="spacer"></div>
+        <img src="images/IMG_2416.JPG" id="figure8">
+        <p class="caption">
+            <b>Figure 8: </b>Finished PCB with Arduino and thermal sensor
+        </p>
+
+    </body>
+
+</html>
